@@ -8,15 +8,15 @@ public class Ejercicio1 {
 	 */
 
 	public static void main(String[] args) {
-		// Creamos variable int
+		// Creamos variable int y le damos valor uno.
 		int num = 1;
-		
-		//Creamos el bucle
+
+		// Creamos el bucle
 		do {
-			System.out.println(num);
-			num++;
-		} while(num < 21);
-		
+			System.out.println(num); // Imprimos el valor actual de la variable num
+			num++; // Vamos sumando uno al número
+		} while (num < 21); // Se seguirá reproduciendo el bucle hasta el número 20.
+
 	}
 
 }
