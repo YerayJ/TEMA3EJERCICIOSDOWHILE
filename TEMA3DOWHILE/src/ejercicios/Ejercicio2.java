@@ -15,7 +15,7 @@ public class Ejercicio2 {
 		do {
 			System.out.println(num); // Imprimos el valor actual de la variable num
 			num+=2; // Como queremos sacar los número pares le sumamos dos a la variable num
-		} while (num < 200); // El  bucle seguirá reproduciendo hasta el número par antes del 200.
+		} while (num < 200); // El bucle seguirá reproduciendo hasta el número par antes del 200.
 
 	}
 

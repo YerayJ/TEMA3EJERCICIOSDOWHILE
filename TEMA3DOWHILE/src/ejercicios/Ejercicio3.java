@@ -1,5 +1,7 @@
 package ejercicios;
 
+import java.util.Scanner;
+
 public class Ejercicio3 {
 
 	/*
@@ -8,15 +10,25 @@ public class Ejercicio3 {
 	 */
 
 	public static void main(String[] args) {
-		// Creamos variable int le añadimos valor 0 para inicianizarla
-		int num = 0;
-
+		// Creamos variables int le añadimos valor 0 para inicianizarlas
+		int inicio = 0;
+		int contador = 0;
+		int limite;
+		
+		//Creamos un escaner
+		Scanner key = new Scanner(System.in);
+		
+		//Pedimos variables por pantalla
+		System.out.println("Deme un número: ");
+		limite = key.nextInt();
+		
 		// Creamos el bucle
 		do {
-			System.out.println(num); // Imprimos el valor actual de la variable num
-			num+=2; // Como queremos sacar los número pares le sumamos dos a la variable num
-		} while (num < 200); // El  bucle seguirá reproduciendo hasta el número par antes del 200.
-
+			inicio+=contador; // Como queremos sacar los número pares le sumamos dos a la variable num
+			contador++;
+		} while (contador <= limite); // El  bucle seguirá reproduciendo hasta el número par antes del 200.
+		
+		System.out.println(inicio);
 	}
 
 }
