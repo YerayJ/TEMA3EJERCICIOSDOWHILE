@@ -29,6 +29,10 @@ public class Ejercicio3 {
 		} while (contador <= limite); // El  bucle seguirá reproduciendo hasta el número par antes del 200.
 		
 		System.out.println(inicio);
+
+		//Cerramos el escaner
+		key.close();
 	}
+
 
 }

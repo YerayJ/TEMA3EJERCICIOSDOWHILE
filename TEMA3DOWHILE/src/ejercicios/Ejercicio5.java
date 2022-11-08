@@ -5,43 +5,49 @@ import java.util.Scanner;
 public class Ejercicio5 {
 
 	/*
-	 * Realiza un programa que muestre la tabla de multiplicar de un número
-	 * introducido por teclado. Por ejemplo, si se introduce el número 3 se debe
-	 * imprimir lo siguiente:.
+	 * Realiza un programa donde el usuario "piensa" un número del 1 al 100 y el
+	 * ordenador intenta adivinarlo. Es decir, el ordenador irá proponiendo números
+	 * una y otra vez hasta adivinarlo (el usuario deberá indicarle al ordenador si
+	 * es mayor, menor o igual al número que ha pensado).
 	 */
 
 	public static void main(String[] args) {
-		// Creamos variable num para pedírsela al usuario y la variable ramdom que
-		// generará un número aleatorio desde el 1 al 100.
-		int num;
-		int ramdom = (int) (Math.random() * 100 + 1);
+		// Creamos variable String para pedirsela al usuario, las demás en int, ramdom
+		// para crear un número aleatorio, mayor y menor como máximo y mínimo en el
+		// rango.
+		String usuario = "";
+		int ramdom;
+		int mayor = 101;
+		int menor = 0;
 
 		// Creamos un escaner
 		Scanner key = new Scanner(System.in);
 
-		// Pedimos variables por pantalla
-		System.out.println("Deme un número entre el 1 y el 100: ");
-		num = key.nextInt();
-
-		// Creamos el bucle y un primer if para ver que el número entrante está dentro del rango.
-
+		// Creamos el bucle
 		do {
-			if (num == ramdom) { // Si num es igual a ramdom el bucle acabará y habremos acertado.
-				System.out.println("Has acertado");
-				break;
-			} else if (num < ramdom) { // Si num es menor que ramdom le deberemos decir que el número es mayor el bucle
-										// volverá a ejecutarse.
-				System.out.println("El número es mayor");
-			} else { // Si num es mayor que ramdom le deberemos decir que el número es menor el bucle
-				// volverá a ejecutarse.
-				System.out.println("El número es menor");
+			// Creamos un número un aleatorio en el que el rango varia al restar el número
+			// mayor entre el número menor como número máximo y como mínimo será el número
+			// menor.
+			ramdom = (int) (Math.random() * (mayor - menor) + menor);
+			// Le imprimimos un número entre el rango y le preguntamos si es ese.
+			System.out.println("¿Tu número es " + ramdom + "?");
+			// Le pedimos al usuario una respuesta y la almacenamos como cadena.
+			usuario = key.nextLine();
+			// En el siguiente if si el usuario nos dice que su número es menor guardaremos
+			// la variable ramdom como el máximo ahora.
+			if (usuario.equalsIgnoreCase("MENOR")) {
+				mayor = ramdom;
+				// En el siguiente if si el usuario nos dice que su número es mayor guardaremos
+				// la variable ramdom como el mínimo ahora.
+			} else if (usuario.equalsIgnoreCase("MAYOR")) {
+				menor = ramdom;
 			}
-			num = key.nextInt(); // Volvemos a pedir un número al usuario, ya que no ha acertado.
-		} while (num < 101 && num > 0); // Con este while comprobamos que el número que introduce el usuario está dentro
-										// del rango.
+			// Este bucle terminará cuando el usuario nos indique que si es el número.
+		} while (!usuario.equalsIgnoreCase("SI"));
 
-		
-		
+		// Imprimimos fuera del bucle que ha acertado.
+		System.out.println("Has acertado!");
+
 		// Cerramos el escaner
 		key.close();
 
